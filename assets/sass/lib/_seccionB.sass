@@ -1,0 +1,53 @@
+@import "vars" 
+body
+  .seccion-B
+    z-index: 2
+    width: 45%
+    height: 90%
+    position: relative
+    left: 65em
+    bottom: 40em
+    @media only screen and (max-width: 600px)
+        right: 60em
+        top: 20em
+        width: 100%
+    .info-week
+       position: relative
+       left: 2em
+       top: 1em
+       @media only screen and (max-width: 600px)
+           left: 1em
+    .semana
+        position: relative
+        top: 2em
+        left: 2em
+        width: 80%
+        height: 100%
+        .day
+          background-color: $tertiary-color
+          width: 100%
+          height: 15%
+          margin-bottom: 1em
+          border-radius: 0.5em
+          .circle-icon
+             width: 15%
+             position: relative
+             right: 1em
+             bottom: 0.5em
+             @media only screen and (max-width: 600px)
+               width: 20%
+               right: 0.9em
+               bottom: 0.3em
+.cifras-diarias
+    position: relative
+    display: flex
+    flex-direction: column
+    left: 6em
+    bottom: 4em
+.grados-diarios
+  display: flex
+    flex-direction: row
+
+
+
+       

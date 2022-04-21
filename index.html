@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css.map">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.3.0/pouchdb.min.js"></script>
+</head>
+
+<body>
+    <header class="imagen-cabecera-box ">
+        <div class="info">
+            <span class="grados"> X <span class="celsios">°C</span></span>
+            <div class="ubicacion"><span class="city">Madrid</span> <span class="loc-weather"></span> </div>
+            <span class="date"> X de mes </span>
+            <div class="btn-box-locs"><button class="btn-mis-locs">Añadir a mis localizaciones</button></div>
+        </div>
+        
+        
+        <div class="nav"><button class="btn-loc"><span class="loc-text">Mis localizaciones</span></button>
+        <div class="mis-localizaciones"></div>
+            <img class="lupa" src="assets/icons/lupa.svg" alt="">
+            <div class="collapsible-search">
+                <span class="search-info">Busca una ciudad</span>
+                    <div class="form">
+                        <div class="close"><span class="x">x</span></div>
+                        <input type="search" id="search_input" name="q"
+                         placeholder="Ciudad">
+                        <button class="btn_search">Search</button>
+                      </div>
+        </div>
+            
+    </header>
+    
+        <section class="seccion-A">
+            <div class="detalles">
+                <div class="info"><span class="detalles-info">Detalles</span> <span class="clima-actual">clima actual</span></div>
+                <ul class="box-seccionA">
+                    <li class="especif">
+                        <img class="espf-icon" id="temp-icon" src="assets/icons/temp.svg" alt="">
+                        <div class="info-especif">
+                            <div class="info-temp">
+                                <span id="max-temp">X<span class="max-temp-celsius">°|</span></span>
+                                <span id="min-temp">X<span class="min-temp-celsius">°</span></span></div>
+                            <span class="name-especif" id="temp-title">Temperatura</span>
+                        </div>
+                    </li>
+                    <li class="especif">
+                        <img class="espf-icon" id="humidity-icon" src="assets/icons/humidity.svg" alt="">
+                        <div class="info-especif">
+                            <div class="info-humidity">
+                                <span id="humidity-number">X<span id="humidity-percent">%</span></span>
+                                <span class="name-especif" id="humidity-title">Humedad</span>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="especif">
+                        <img class="espf-icon" id="umbrella-icon" src="assets/icons/umbrella.svg" alt="">
+                        <div class="info-especif">
+                            <div class="info-especif">
+                             <div class="info-rain">
+                                <span id="rain-number">X <span id="rain-percent" >%</span></span>
+                                <span class="name-especif" id="rain-title">Posibilidad lluvia</span>
+                             </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="especif">
+                        <img class="espf-icon" id="wind-icon" src="assets/icons/wind.svg" alt="">
+                        <div class="info-especif">
+                            <div class="info-wind">
+                                <span id="wind-number">X <span id="wind-percent" >Km/h</span></span>
+                                <span class="name-especif" id="wind-title">Velocidad viento</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button class="btn-mas"><span class="mas-text">Mostrar</span></button>
+                 <div class="collapsible-section">
+                        <div class="content">
+                            <div class="air-quality">
+                                <span>índice de calidad del aire</span>
+                                <span>Nivel de contaminación</span>
+                                <div class="quality-bar"></div>
+                            </div>
+                            <div class="meteo-radar">
+                                <span>Radar meteorológico</span>
+                                <span>Imagenes satélite</span>
+                                <div class="map"></div>
+                            </div>
+                       </div>
+
+                  </div> 
+                
+            </div>
+           </section>
+    
+            <section class="seccion-B">
+                <div class="info-week"><span class="week-info-title">Predicción semanal</span></div>
+                <div class="semana"> 
+                    <div class="day"><img class="circle-icon" src="assets/icons/circle.svg" alt=""><span id="icon-weather" ></span>
+                        <div class="bloque-día-info">
+                            <div class="cifras-diarias">
+                                <span class="dia-info">Lunes, 27 mar</span>
+                                <div class="grados-diarios">
+                                    <span class="max-temp-diaria">x <span class="grados-simbolo-diario">°|</span></span>
+                                    <span class="max-temp-diaria">x <span class="grados-simbolo-diario">°</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day"><img class="circle-icon" src="assets/icons/circle.svg" alt=""><span id="icon-weather" ></span>
+                        <div class="bloque-día-info">
+                            <div class="cifras-diarias">
+                                <span class="dia-info">Lunes, 27 mar</span>
+                                <div class="grados-diarios">
+                                    <span class="max-temp-diaria">x <span class="grados-simbolo-diario">°|</span></span>
+                                    <span class="max-temp-diaria">x <span class="grados-simbolo-diario">°</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day"><img class="circle-icon" src="assets/icons/circle.svg" alt=""><span id="icon-weather" ></span>
+                        <div class="bloque-día-info">
+                            <div class="cifras-diarias">
+                                <span class="dia-info">Lunes, 27 mar</span>
+                                <div class="grados-diarios">
+                                    <span class="max-temp-diaria">x <span class="grados-simbolo-diario">°|</span></span>
+                                    <span class="max-temp-diaria">x <span class="grados-simbolo-diario">°</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day"><img class="circle-icon" src="assets/icons/circle.svg" alt=""><span id="icon-weather" ></span>
+                        <div class="bloque-día-info">
+                            <div class="cifras-diarias">
+                                <span class="dia-info">Lunes, 27 mar</span>
+                                <div class="grados-diarios">
+                                    <span class="max-temp-diaria">x <span class="grados-simbolo-diario">°|</span></span>
+                                    <span class="max-temp-diaria">x <span class="grados-simbolo-diario">°</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+            
+    
+     <script src="assets/js/main.js"></script>
+</body>
+
+</html>
