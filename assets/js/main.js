@@ -89,10 +89,10 @@
         rain.textContent=Math.floor(obj.list[0].clouds.all)+ '%';
 
     };
-    
+
     //Declaración de la función getWeatherData ( función principal)
-    
-    const getWeatherData= async (city)=>{
+    let getWeatherData =""
+    getWeatherData= async (city)=>{
         //Hacer un request a la API y conseguir un objeto que contenga los datos de la ciudad escogida
           //fetch
           const res= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=606bd56aa4673083d775fd834a6b9a46`);
@@ -103,7 +103,6 @@
         // Invocar a la función que cambiaa el fondo de pantalla según el tiempo
         //cambiarFondo(data);
     };
-        
         // Cargar una ciudad por defecto 
          window.onload = ()=>{
         getWeatherData("Madrid");}
