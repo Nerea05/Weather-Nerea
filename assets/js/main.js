@@ -65,29 +65,30 @@
     //const cambiarFondo=(obj)=>{}
     //declaración display data
     const displayData =(obj)=>{
+        console.log(obj)
+        
         //cambiar los grados del día
-        grados.textContent= Math.floor(obj.list[0].main.temp) + '°C';
+        grados.textContent= Math.floor(obj.main.temp) + '°C';
         //cambiar el nombre de la ciudad
-        ciudad.textContent= obj.list[1].name
+        ciudad.textContent= obj.name
         //cambiar weather
-        tiempoActual.textContent= obj.list[0].weather[0].description;
+        tiempoActual.textContent= obj.weather[0].description;
         //cambiar temperatura maxima y minima
-        maxTemp.textContent= Math.floor(obj.list[0].main.temp_max)+'° |';
-        minTemp.textContent= Math.floor(obj.list[0].main.temp_min);
+        maxTemp.textContent= Math.floor(obj.main.temp_max)+'° |';
+        minTemp.textContent= Math.floor(obj.main.temp_min)+'°';
         // cambiar humedad 
-        humidity.textContent= obj.list[0].main.humidity+'%';
+        humidity.textContent= obj.main.humidity+'%';
         //cambiar la fecha
-        let fecha= new Date(obj.list[0].dt * 1000).toLocaleString("ES",{ // se añade un método con dos parametros para modificar el formato de fecha 
+        let fecha= new Date(obj.dt * 1000).toLocaleString("ES",{ // se añade un método con dos parametros para modificar el formato de fecha 
             timeStyle:"short",
             dateStyle:"long"})
-        //let fecha= new Date(obj.list[0].dt);
-        console.log(fecha);
+        //let fecha= new Date(obj.list[0].dt);        
         date.innerHTML = fecha; 
         // cambiar viento
-        wind.textContent= Math.floor(obj.list[0].wind.speed)+'km/h';
+        wind.textContent= Math.floor(obj.wind.speed)+'km/h';
         // cambiar lluvia
-        rain.textContent=Math.floor(obj.list[0].clouds.all)+ '%';
-
+        rain.textContent=Math.floor(obj.clouds.all)+ '%';
+        
     };
 
     //Declaración de la función getWeatherData ( función principal)
@@ -95,7 +96,7 @@
     getWeatherData= async (city)=>{
         //Hacer un request a la API y conseguir un objeto que contenga los datos de la ciudad escogida
           //fetch
-          const res= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=606bd56aa4673083d775fd834a6b9a46`);
+          const res= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=sp&appid=606bd56aa4673083d775fd834a6b9a46`);
           const data = await res.json();
           console.log(data);
         //INVOCAR LA FUNCIÓN QUE MUESTRA LOS DATOS EN PANTALLA
