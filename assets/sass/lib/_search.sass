@@ -19,4 +19,62 @@
           transform: scale(1.8)
           cursor: pointer    
             
+//collapsable 
+.collapsible-search
+  display: flex
+  justify-content: center
+  flex-direction: column
+  border-radius: 0.5em
+  background-color: #fff
+  width: 45.5em
+  height: 10em
+  position: absolute
+  right: 11.8em
+  z-index: 5
+  @media only screen and (max-width: 800px)
+    right: 9.5em
+    width: 20em
+    height: 8em
+    top: 1em
+.search-info
+  position: relative
+  left: 1em
+  bottom: 1em
+.close
+  cursor: pointer
+  .x
+  cursor: pointer
+  position: relative
+  left: 20em
+  font-family: 'Poppins', sans-serif
+  color: $primary-color
+  font-size: 2em
+  font-weight: bold
+  @media only screen and (max-width: 800px)
+    left: 8.5em
+    top: 0.4em
+  &:hover
+    color: $quaternary-color
+
+
+
+.form
+  position: relative
+  left: 2em
+  bottom: 1.5em
+  .btn_search
+    cursor: pointer
+    background-color:  $tertiary-color
+    transition: 0.4s
+    background-image: linear-gradient(to top, #275781 50%, transparent 50%)
+    background-size: 100% 200%
+    background-position: 0% 0%
+    &:hover
+      color: #FFF
+      background-position: 0% 100%
+      
+
     
+
+
+

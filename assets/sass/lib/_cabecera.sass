@@ -5,8 +5,8 @@
     display: flex
     justify-content: flex-start
     box-shadow:  17px 17px 34px #dedede, -17px -17px 34px #ffffff
-    @media only screen and (max-width: 600px)
-        height: 15em
+    @media only screen and (max-width: 800px)
+        height: 25em
 //INFORMACIÓN 
 .info
     display: flex
@@ -15,7 +15,7 @@
     height: 65%
     margin-top: 5%
     z-index: 2
-    @media only screen and (max-width: 600px)
+    @media only screen and (max-width: 800px)
         width: 60%
         height: 50%
         margin-top: 15%
@@ -25,26 +25,30 @@
         flex-direction: row
         width: 25%
         height: 30%
-        margin-left: 10%
-        margin-top: 10%
-        @media only screen and (max-width: 600px)
+        position: relative
+        left: 0.4em
+        bottom: 0.7em
+        @media only screen and (max-width: 800px)
          height: 40%
-         margin-top: 5%
+         left: 0.2em
+
+
     .Celsios
         width: 25%
         height: 30%
-        @media only screen and (max-width: 600px)
+        @media only screen and (max-width: 800px)
          height: 40%
          margin-top: 5%
 
     .ubicacion
         width: 100%
-        height: 15%
+        height: 20%
         margin-left: 10%
-        margin-top: 2%
+        margin-top: 5%
         display: flex
-        flex-direction: row
-        @media only screen and (max-width: 600px)
+        flex-direction: column
+        justify-content: space-around
+        @media only screen and (max-width: 800px)
          width: 150%
          height: 20%
          margin-top: 2%
@@ -52,58 +56,29 @@
             width: 50%
         .city
             display: flex
-            margin-top: 3%
+            margin-top: 1%
+            position: relative
             margin-right: 2%
-            @media only screen and (max-width: 600px)
-                margin-top: 1%
+            @media only screen and (max-width: 800px)
+                position: relative
+                top: 1.5em
         .loc-weather
             width: 100%
             height: 50%
-            display: flex
-            margin-top: 3%
-            margin-right: 25%
-            @media only screen and (max-width: 600px)
-                margin-top: 1%
+            @media only screen and (max-width: 800px)
+                position: relative
+                top: 1.5em
     .date
-            width: 45%
+            width: 50%
             height: 10%
-            left: 4em
-            margin-left: 10%
-            margin-top: 4%
+            position: relative
+            left: 10%
+            bottom: 20%
+            @media only screen and (max-width: 800px)
+                width: 100%
+                left: 8%
 
-.btn-guardar
-    all: unset
-    color: $tertiary-color
-    border: 2.5px solid $tertiary-color
-    padding: 1%
-    width: 12em
-    height: 10%
-    border-radius: 20px
-    font-family: 'Poppins', sans-serif
-    font-weight: Bold
-    margin-top: 7%
-    cursor: pointer
-    transition: 0.4s
-    color: $tertiary-color
-    border: 3px solid $tertiary-color
-    background-image: linear-gradient(to top, #275781 50%, transparent 50%)
-    background-size: 100% 200%
-    background-position: 0% 0%
-    position: relative
-    right: 80em
-    top: 14em
-    @media only screen and (max-width: 600px)
-            font-size: 0.6em
-            width: 11em
-            right: 13em
-            top: 13em
-    .loc-guardar
-        padding: 20%
-        @media only screen and (max-width: 600px)
-                padding: 6%
 
-    
-    
 
         
 
@@ -111,17 +86,20 @@
 .nav
     width: 30%
     height: 20%
-    margin-left: 40%
-    margin-top: 2%
+    position: relative
+    left: 50%
+    top:  15%
     display: flex
     flex-direction: row
-    @media only screen and (max-width: 600px)
-      margin-left: 5%  
-      width: 40%
+    @media only screen and (max-width: 800px)
+      left: 25%  
+      width: 100%
     .btn-loc
+        display: flex
+        flex-direction: row
         all: unset
-        color: $tertiary-color
-        border: 2.5px solid $tertiary-color
+        color: $quaternary-color
+        background-color:  $tertiary-color
         padding: 1%
         width: 12em
         height: 30%
@@ -131,18 +109,17 @@
         margin-top: 7%
         cursor: pointer
         transition: 0.4s
-        color: $tertiary-color
-        border: 3px solid $tertiary-color
         background-image: linear-gradient(to top, #275781 50%, transparent 50%)
         background-size: 100% 200%
         background-position: 0% 0%
-        @media only screen and (max-width: 600px)
-            font-size: 0.6em
-            width: 11em
+        @media only screen and (max-width: 800px)
+              width: 40%
+              height: 40%
+
         .loc-text
-            padding: 10%
-            @media only screen and (max-width: 600px)
-                padding: 6%
+            padding: 20%
+            @media only screen and (max-width: 800px)
+                 padding: 10%
     .btn-loc
         &:hover
             color: #FFF
@@ -150,29 +127,17 @@
             
 
 // búsqueda
-    .search
-       width: 20%
-       height: 70%
-       margin-top: 1em
-       margin-left: 2em
-       display: flex
-       justify-content: center
-       @media only screen and (max-width: 600px)
-         margin-top: 0.5em
-         margin-left: 1em
-
-    .lupa
-        width: 100%
-        transition: transform .2s
-    .lupa    
-        &:hover
-          transform: scale(1.8)
-          cursor: pointer    
-            
- .collapsible-search
-     position: relative
-     bottom
-    
+.lupa
+    position: relative
+    top: 1em
+    cursor: pointer
+    transition: transform .2s
+    @media only screen and (max-width: 800px)
+      top: 0.5em  
+.lupa
+    &:hover
+        transform: scale(1.5)
+        
     
 
 

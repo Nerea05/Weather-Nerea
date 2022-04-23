@@ -1,7 +1,63 @@
 @import "vars" 
-.btn-box-locs
 .btn-mis-locs
-    height: 4em
+    all: unset
     position: relative
-    left: 30em
-    bottom: 5em
+    left: 3em
+    top: 2em
+    background-color:  $tertiary-color
+    padding: 1%
+    width: 15em
+    height: 15%
+    border-radius: 40px
+    display: flex
+    justify-content: center
+    cursor: pointer
+    transition: 0.4s
+    background-image: linear-gradient(to top, #275781 50%, transparent 50%)
+    background-size: 100% 200%
+    background-position: 0% 0%
+    @media only screen and (max-width: 800px)
+        width: 9em
+        left: 1.5em
+        top: 5em
+
+    .mis-locs-text
+        position: relative
+        top: 0.5em
+        @media only screen and (max-width: 800px)
+           top: 0.5em 
+.btn-mis-locs
+    &:hover
+            color: #FFF
+            background-position: 0% 100%
+            .mis-locs-text
+                color: #FFF
+
+// LOC LIST
+.name-locations
+    padding: 0.5em
+.titulo-localizaciones
+    padding: 2em
+.loc-list
+    background-color: $tertiary-color
+    width: 100%
+    .localitation-title
+        position: relative 
+        left: 0.5em
+        @media only screen and (max-width: 800px)
+            left: 0.1em
+    .loc-saved
+        position: relative 
+        left: 3em
+        padding: 0.2%
+        @media only screen and (max-width: 800px)
+          position: relative 
+          left: 1.5em
+    #close
+        position: relative 
+        left: 45em
+        cursor: pointer
+        transition: transform .2s
+        @media only screen and (max-width: 800px)
+             left: 7em
+

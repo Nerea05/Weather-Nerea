@@ -1,17 +1,4 @@
-    // Sección colapsable 
-    let btnMas= document.querySelector(".btn-mas");
-    let collapsibleSection= document.querySelector(".collapsible-section");
-    btnMas.addEventListener('click', () => {
-        if(collapsibleSection.style.display === 'none' ){
-            collapsibleSection.style.display = 'block';
-
-        } else{
-            collapsibleSection.style.display = 'none';
-            btnMas.style.display = 'block';
-        }  
-    })
-
-    // search colapsable 
+// search colapsable 
     let lupaIcon= document.querySelector(".lupa");
     let btnCerrar= document.querySelector(".close");
     let collapsibleSearch= document.querySelector(".collapsible-search");
@@ -46,10 +33,39 @@
 
 
     });
+// saved locs colapsables
+let btnLoc= document.querySelector(".btn-loc"); //  ver localizaciones 
+let btnMisLocs= document.querySelector(".btn-mis-locs"); // añadir localización
+let locList= document.querySelector(".loc-list"); // lista de localizaciones
+let closebtn= document.querySelector("#close") // cerrar colapsable 
+
+btnLoc.addEventListener('click', () => {
+    if(locList.style.display === 'none' ){
+        locList.style.display = 'block';
+
+    } else{
+        locList.style.display = 'none';
+        btnLoc.style.display = 'block';
+    }  
+});
+closebtn.addEventListener('click', () => {
+    if(locList.style.display === 'none' ){
+        locList.style.display = 'block';
+
+    } else{
+        locList.style.display = 'none';
+        btnLoc.style.display = 'block';
+    }  
+});
+
+
+
+
 
    
 
     //Captura de elementos del DOM
+    let header= document.querySelector(".imagen-cabecera-box")
     let cabecera= document.querySelector(".imagen-cabecera-box");
     let grados=  document.querySelector(".grados");
     let ciudad=  document.querySelector(".city");  
@@ -62,11 +78,37 @@
     let wind=  document.querySelector("#wind-number");
     //DECLARACIÓN DE FUNCIONES SECUNDARIAS
     //declaración cambio de fondo
-    //const cambiarFondo=(obj)=>{}
     //declaración display data
-    const displayData =(obj)=>{
-        console.log(obj)
+    const cambiarFondo=(obj)=>{
+        let weather= obj.weather[0].main;
+        console.log(weather);
+        switch (weather) {
+            case 'weather== clear':
+                header.classList.add("night-sunny")
+              break;
+            case 'weather= clouds':
+                header.classList.remove("night-sunny");
+                header.classList.add("sun-cloudy");
+              break;
+            case 'weather== Rain':
+                header.classList.remove("sun-cloudy");
+                header.classList.add("night-cloudy-rain");
+              break;
+            case 'weather= snow':
+                header.classList.remove("night-cloudy-rain");
+                header.classList.add("night-snow");
+              break;
+            case 'weather== Thunderstorm':
+                header.classList.remove("night-snow");
+                header.classList.add("night-thunder");
+              break;
+            default:
+                header.classList.remove("night-thunder");
+                header.classList.add("night-sun-cloudy");
+          };
         
+    }
+    const displayData =(obj)=>{
         //cambiar los grados del día
         grados.textContent= Math.floor(obj.main.temp) + '°C';
         //cambiar el nombre de la ciudad
@@ -102,7 +144,7 @@
         //INVOCAR LA FUNCIÓN QUE MUESTRA LOS DATOS EN PANTALLA
           displayData(data);
         // Invocar a la función que cambiaa el fondo de pantalla según el tiempo
-        //cambiarFondo(data);
+        cambiarFondo(data);
     };
         // Cargar una ciudad por defecto 
          window.onload = ()=>{
@@ -117,3 +159,33 @@ let añadirLoc= document.querySelector(".btn-loc");
 
     
 
+//mapbox 
+let map = document.querySelector("#map");
+mapboxgl.accessToken = 'pk.eyJ1IjoibmVyZWEwNSIsImEiOiJjbDEzeTd4YnQwMWlhM2JwNzEzNW82dGJwIn0.sFplNCWbKL7xPZuDFDKeLQ';
+var tileset = 'mapbox.streets';
+map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v8',
+    center: [-95.7, 37.1], // starting position
+    zoom: 3}); // starting zoom
+
+ map.on('load', function () {
+        map.addSource('aerisweather-radar', {
+            "type": 'raster',
+            "tiles": [
+                'https://maps1.aerisapi.com/[clientId]_[clientKey]/radar/{z}/{x}/{y}/current.png',
+                'https://maps2.aerisapi.com/[clientId]_[clientKey]/radar/{z}/{x}/{y}/current.png',
+                'https://maps3.aerisapi.com/[clientId]_[clientKey]/radar/{z}/{x}/{y}/current.png',
+                'https://maps4.aerisapi.com/[clientId]_[clientKey]/radar/{z}/{x}/{y}/current.png'
+            ],
+            "tileSize": 256,
+            "attribution": "<a href='https://www.aerisweather.com/'>AerisWeather</a>"
+        });
+        map.addLayer({
+            "id": "radar-tiles",
+            "type": "raster",
+            "source": "aerisweather-radar",
+            "minzoom": 0,
+            "maxzoom":22
+        });
+    });
