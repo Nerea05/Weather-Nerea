@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css.map">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.3.0/pouchdb.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@7.3.0/dist/pouchdb.min.js"></script>
+
 </head>
 
 <body>
@@ -38,15 +39,7 @@
     <div class="loc-list">
         <span class="titulo-localizaciones"><span class="localitation-title">Tus localizaciones</span> <span id="close"> X</span></span>
        <ul class="name-locations">
-        <li class="loc-saved">Madrid </li>
-        <li class="loc-saved">Toledo</li>
-        <li class="loc-saved">Murcia</li>
-        <li class="loc-saved">Mojázar</li>
-        <li class="loc-saved">Ibiza</li>
-        <li class="loc-saved">Galicia</li>
-        <li class="loc-saved">Los Ángeles</li>
-        <li class="loc-saved">Nueva York</li>
-        <li class="loc-saved">Roma</li>
+       
        </ul>
 
     </div>
@@ -107,7 +100,8 @@
                                 <div class="info-map">
                                     <span class="detalles-info">Radar meteorológico</span>
                                     <span class="clima-actual">Imagenes satélite</span></div>
-                                <div class="map"></div>
+                                </div>
+                                <div id="map"></div>
                             </div>
                        </div>
 
@@ -167,7 +161,6 @@
                 </div>
             </section>
             
-    
      <script src="assets/js/main.js"></script>
 </body>
 
