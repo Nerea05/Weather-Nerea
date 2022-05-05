@@ -1,4 +1,4 @@
-
+let counter = 0;
 // search colapsable 
     let lupaIcon= document.querySelector(".lupa");
     let btnCerrar= document.querySelector(".close");
@@ -70,14 +70,14 @@ let cities;
     /** Escuchar eventos de los botones */
     btnMisLocs.addEventListener("click", addCity, false);
     
-
+    
     /** Función para añadir usuarios */
     function addCity(){       
-            
+        let citytoadd = document.querySelector("span.city");
         // Añadir registro a la BBDD
         let doc = {
-                "_id": `Ciudad${city}`,
-                "name": ciudad.innerHTML,               
+                "_id": `Ciudad${counter}`,
+                "name": citytoadd.textContent,               
               };            
             db.put(doc);     
                         
@@ -94,6 +94,8 @@ let cities;
                 return console.log(err);
             } else {                
                 cities = docs.rows;
+                counter = docs.rows.length;
+                locList.innerHTML = "";
                 cities.forEach(element => {
                     let city = `
                                 <article>
@@ -202,7 +204,7 @@ getWeatherData= async (city)=>{
 };
     // Cargar una ciudad por defecto 
      window.onload = ()=>{
-    getWeatherData("Madrid");}
+    getWeatherData("Roma");}
         
 
 
