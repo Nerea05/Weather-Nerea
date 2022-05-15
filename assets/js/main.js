@@ -175,7 +175,7 @@ window.onload = ()=>{
               break;
             default:
                 header.classList.remove("night-thunder");
-                header.classList.add("night-sun-cloudy");
+                header.classList.add("default");
           };
         
     };
